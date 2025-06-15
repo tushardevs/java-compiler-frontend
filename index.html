@@ -59,7 +59,7 @@ public class Main {
       const code = editor.getValue();
       document.getElementById('output').innerText = "Running...";
 
-      const response = await fetch("https://java-compiler-backend-m8eo.onrender.com/run-java", {
+      const response = await fetch("https://java-compiler-backend-1.onrender.com/run-java", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code })
