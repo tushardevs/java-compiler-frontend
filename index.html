@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Java Compiler</title>
+</head>
+<body>
+<h1>Java Online Compiler</h1>
+<textarea id="code" rows="15" cols="80">// Your Java code here</textarea><br>
+<button onclick="runCode()">Run</button>
+<pre id="output"></pre>
+
+<script>
+    async function runCode() {
+      const code = document.getElementById("code").value;
+      const response = await fetch('https://java-compiler-backend-m8eo.onrender.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code })
+      });
+      const result = await response.json();
+      document.getElementById("output").textContent = result.output || result.error;
+    }
+</script>
+</body>
+</html>
